@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>UMusic player</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    </head>
+    <body>
+        <section class="flex w-full h-full text-white ">
+            <div class="flex flex-col w-[17%] gap-8 bg-black text-white px-[2%] fixed z-50 h-full py-[2%]">
+                <div class="flex gap-1 items-center text-[22px] font-[500]">
+                    <i class="fa-solid fa-music text-[40px]"></i>
+                    <h1 class="font-[700] text-[26px]">UMusic</h1>
+                </div>
+                <ul class="flex flex-col gap-4">
+                    <li class="hover:text-[lightgreen]"><a href="#"><i class="fa-solid fa-house pr-[5px]"></i>Home</a></li>
+                    <li class="hover:text-[lightgreen]"><a href="#"><i class="fa-solid fa-magnifying-glass pr-[5px]"></i>Search</a></li>
+                    <li class="hover:text-[lightgreen]"><a href="#"><i class="fa-solid fa-book pr-[5px]"></i>Your Library</a></li>
+                    <li class="hover:text-[lightgreen] mt-[40%]"><a href="#"><i class="fa-solid fa-headphones-simple pr-[5px]"></i>Create playlist</a></li>
+                    <li class="hover:text-[lightgreen]"><a href="#"><i class="fa-solid fa-heart pr-[5px]"></i>Liked songs</a></li>
+                </ul>
+                
+                <ul class="flex absolute flex-wrap gap-2 bottom-[100px] text-[11px] text-[#767676] font-[GothicA1] font-[700]">
+                    <li><a href="#">Legal</a></li>
+                    <li><a href="#">Privacy Center</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookies</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Ads</a></li>
+                </ul>
+                
+                <button class="flex absolute bottom-[20px] justify-evenly items-center border-[1px] rounded-2xl p-[5px] w-[90px]"><i class="fa-solid fa-globe"></i>English</button>
+            </div>
+
+
+            <div class="flex w-full h-full flex-wrap bg-white">
+                <div class="flex w-full h-[12%] bg-black text-white justify-end items-center fixed z-40">
+                    <div class="flex gap-8">
+                        <button class="py-[10px] px-[25px] rounded-full bg-black hover:bg-white hover:text-black active active:bg-[lightgreen] ">Sign up</button>
+                        <button class="mr-[50px] py-[10px] px-[25px] rounded-full text-black bg-white active:bg-[lightgreen]">Log in</button>
+                    </div>
+
+                </div>
+                <div class="flex w-full flex-col h-full flex-wrap bg-black/90 bg-opaccity font-[GothicA1] pl-[20%] pt-[5%] ">
+                    <div class="flex flex-col flex-wrap w-full h-full text-white ">
+                        <div class="flex w-full flex-wrap justify-between items-center py-[20px] font-[500]">
+                            <h1 class="text-[22px] py-[5px]">Focus</h1>
+                            <a href="#" class="text-right px-[3%] text-[#B3B3B3] text-[14px]">Show all</a>
+                        </div>
+
+                        <div class="flex w-full flex-wrap h-full gap-x-[40px] gap-y-[20px]">
+                            <div class="flex flex-col items-center w-[175px] h-[253px] bg-[#161616] rounded-md hover:scale-[1.05]">
+                                <img class="w-[160px] h-[160px]" src="Imgs/Rectangle 32.png" alt="img"/>
+                                <h2 class="text-[14px] font-[800] text-left">Peaceful piano</h2>
+                                <p class="text-[12px] px-[10px] text-[#B3B3B3] py-[12px]">peaceful piano to help you slow down, breathe, and...</p>
+                            </div>
+                            <div class="flex flex-col items-center w-[175px] h-[253px] bg-[#161616] rounded-md hover:scale-[1.05] ">
+                                <img class="w-[160px] h-[160px]" src="Imgs/Rectangle 32 (1).png" alt="img"/>
+                                <h2 class="text-[14px] font-[800] text-left">Peaceful piano</h2>
+                                <p class="text-[12px] px-[10px] text-[#B3B3B3] py-[12px]">peaceful piano to help you slow down, breathe, and...</p>
+                            </div>
+                            <div class="flex flex-col items-center w-[175px] h-[253px] bg-[#161616] rounded-md hover:scale-[1.05]">
+                                <img class="w-[160px] h-[160px]" src="Imgs/Rectangle 32 (2).png" alt="img"/>
+                                <h2 class="text-[14px] font-[800] text-left">Peaceful piano</h2>
+                                <p class="text-[12px] px-[10px] text-[#B3B3B3] py-[12px]">peaceful piano to help you slow down, breathe, and...</p>
+                            </div>
+                            <div class="flex flex-col items-center w-[175px] h-[253px] bg-[#161616] rounded-md hover:scale-[1.05]">
+                                <img class="w-[160px] h-[160px]" src="Imgs/Rectangle 32 (3).png" alt="img"/>
+                                <h2 class="text-[14px] font-[800] text-left">Peaceful piano</h2>
+                                <p class="text-[12px] px-[10px] text-[#B3B3B3] py-[12px]">peaceful piano to help you slow down, breathe, and...</p>
+                            </div>
+                            <div class="flex flex-col items-center w-[175px] h-[253px] bg-[#161616] rounded-md hover:scale-[1.05]">
+                                <img class="w-[160px] h-[160px]" src="Imgs/Rectangle 32 (4).png" alt="img"/>
+                                <h2 class="text-[14px] font-[800] text-left">Peaceful piano</h2>
+                                <p class="text-[12px] px-[10px] text-[#B3B3B3] py-[12px]">peaceful piano to help you slow down, breathe, and...</p>
+                            </div>
+                        </div>
+                        <div class="flex w-full h-full flex-wrap py-[20px] gap-x-[40px] pb-[80px]">
+                            <div class="flex w-full flex-wrap justify-between items-center font-[500]">
+                                <h1 class="text-[22px] py-[5px]">Umusic Playlists</h1>
+                                <a href="#" class="text-right px-[3%] text-[#B3B3B3] text-[14px]">Show all</a>
+                            </div>
+                            <div class="flex flex-col items-center w-[175px] h-[253px] bg-[#161616] rounded-md hover:scale-[1.05]">
+                                <img class="w-[160px] h-[160px]" src="Imgs/Rectangle 32.png" alt="img"/>
+                                <h2 class="text-[14px] font-[800] text-left">Peaceful piano</h2>
+                                <p class="text-[12px] px-[10px] text-[#B3B3B3] py-[12px]">peaceful piano to help you slow down, breathe, and...</p>
+                            </div>
+                            <div class="flex flex-col items-center w-[175px] h-[253px] bg-[#161616] rounded-md hover:scale-[1.05] ">
+                                <img class="w-[160px] h-[160px]" src="Imgs/Rectangle 32.png" alt="img"/>
+                                <h2 class="text-[14px] font-[800] text-left">Peaceful piano</h2>
+                                <p class="text-[12px] px-[10px] text-[#B3B3B3] py-[12px]">peaceful piano to help you slow down, breathe, and...</p>
+                            </div>
+                            <div class="flex flex-col items-center w-[175px] h-[253px] bg-[#161616] rounded-md hover:scale-[1.05]">
+                                <img class="w-[160px] h-[160px]" src="Imgs/Rectangle 32.png" alt="img"/>
+                                <h2 class="text-[14px] font-[800] text-left">Peaceful piano</h2>
+                                <p class="text-[12px] px-[10px] text-[#B3B3B3] py-[12px]">peaceful piano to help you slow down, breathe, and...</p>
+                            </div>
+                            <div class="flex flex-col items-center w-[175px] h-[253px] bg-[#161616] rounded-md hover:scale-[1.05]">
+                                <img class="w-[160px] h-[160px]" src="Imgs/Rectangle 32.png" alt="img"/>
+                                <h2 class="text-[14px] font-[800] text-left">Peaceful piano</h2>
+                                <p class="text-[12px] px-[10px] text-[#B3B3B3] py-[12px]">peaceful piano to help you slow down, breathe, and...</p>
+                            </div>
+                            <div class="flex flex-col items-center w-[175px] h-[253px] bg-[#161616] rounded-md hover:scale-[1.05]">
+                                <img class="w-[160px] h-[160px]" src="Imgs/Rectangle 32.png" alt="img"/>
+                                <h2 class="text-[14px] font-[800] text-left">Peaceful piano</h2>
+                                <p class="text-[12px] px-[10px] text-[#B3B3B3] py-[12px]">peaceful piano to help you slow down, breathe, and...</p>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </section>
+        <section class="flex fixed w-full m-auto inset-0 h-full bg-black items-center pl-[15%] justify-center bg-opacity-75 hidden">
+            <div class="flex flex-col w-[300px] h-[350px] items-center bg-[white] rounded-xl">
+                <div class="relative w-full">
+                    <p class="absolute absolute top-0 right-0 rounded-full hover:cursor-pointer m-[5px] text-center w-[30px] h-[30px] text-[16px] border-[1px] ">X</p>
+                </div>
+                 <div class="flex pt-[20px] gap-1 items-center font-[500]">
+                    <i class="fa-solid fa-music text-[40px]"></i>
+                    <h1 class="font-[700] text-[26px]">UMusic</h1>
+                </div>
+                <h2 class="text-[20px] pt-[15px]">Inicia sesión</h2>
+                <input class="w-[220px] mt-[40px] mb-[25px] border-[1px] border-black rounded-md" type="text" placeholder="Ingresa tu nombre de usuario"/>
+                <input class="w-[220px] border-[1px] border-black rounded-md" type="password" placeholder="Ingresa tu contraseña"/>
+                <button class="p-[10px] mt-[35px] rounded-full bg-[lightgreen]">Iniciar sesión</button>
+            </div>
+        </section>
+    </body>
+</html>
