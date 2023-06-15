@@ -14,6 +14,9 @@ and open the template in the editor.
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Gothic+A1&display=swap" rel="stylesheet">
         <link rel="preconnect" href="https://fonts.googleapis.com">
+        <script src="JavaScript/request.js" defer></script>
+        <script src="JavaScript/login.js" defer></script>
+        <script src="JavaScript/main-canciones.js" defer></script>
     </head>
     <body>
         <section class="flex w-full h-full text-white ">
@@ -46,8 +49,9 @@ and open the template in the editor.
             <div class="flex w-full h-full flex-wrap bg-white">
                 <div class="flex w-full h-[12%] bg-black text-white justify-end items-center fixed z-40">
                     <div class="flex gap-8">
-                        <button class="py-[10px] px-[25px] rounded-full bg-black hover:bg-white hover:text-black active active:bg-[lightgreen] ">Sign up</button>
-                        <button class="mr-[50px] py-[10px] px-[25px] rounded-full text-black bg-white active:bg-[lightgreen]">Log in</button>
+                        <div id="show-user" class="flex items-center justify-center hidden pr-[80px]"><i class="fa-solid fa-user text-[20px]"></i><h2 class="pl-[10px]"><a id="user-name" href="#">hola</a></h2></div>
+                        <button id="btn-sign"class="py-[10px] px-[25px] rounded-full bg-black hover:bg-white hover:text-black active active:bg-[lightgreen] ">Sign up</button>
+                        <button id="btn-login" class="mr-[50px] py-[10px] px-[25px] rounded-full text-black bg-white active:bg-[lightgreen]">Log in</button>
                     </div>
 
                 </div>
@@ -85,54 +89,31 @@ and open the template in the editor.
                                 <p class="text-[12px] px-[10px] text-[#B3B3B3] py-[12px]">peaceful piano to help you slow down, breathe, and...</p>
                             </div>
                         </div>
-                        <div class="flex w-full h-full flex-wrap py-[20px] gap-x-[40px] pb-[80px]">
+                        <div id="songs-section" class="flex w-full h-full flex-wrap py-[20px] gap-x-[40px] pb-[80px]">
                             <div class="flex w-full flex-wrap justify-between items-center font-[500]">
-                                <h1 class="text-[22px] py-[5px]">Umusic Playlists</h1>
+                                <h1 class="text-[22px] py-[5px]">Umusic Popular Songs</h1>
                                 <a href="#" class="text-right px-[3%] text-[#B3B3B3] text-[14px]">Show all</a>
-                            </div>
-                            <div class="flex flex-col items-center w-[175px] h-[253px] bg-[#161616] rounded-md hover:scale-[1.05]">
-                                <img class="w-[160px] h-[160px]" src="Imgs/Rectangle 32.png" alt="img"/>
-                                <h2 class="text-[14px] font-[800] text-left">Peaceful piano</h2>
-                                <p class="text-[12px] px-[10px] text-[#B3B3B3] py-[12px]">peaceful piano to help you slow down, breathe, and...</p>
-                            </div>
-                            <div class="flex flex-col items-center w-[175px] h-[253px] bg-[#161616] rounded-md hover:scale-[1.05] ">
-                                <img class="w-[160px] h-[160px]" src="Imgs/Rectangle 32.png" alt="img"/>
-                                <h2 class="text-[14px] font-[800] text-left">Peaceful piano</h2>
-                                <p class="text-[12px] px-[10px] text-[#B3B3B3] py-[12px]">peaceful piano to help you slow down, breathe, and...</p>
-                            </div>
-                            <div class="flex flex-col items-center w-[175px] h-[253px] bg-[#161616] rounded-md hover:scale-[1.05]">
-                                <img class="w-[160px] h-[160px]" src="Imgs/Rectangle 32.png" alt="img"/>
-                                <h2 class="text-[14px] font-[800] text-left">Peaceful piano</h2>
-                                <p class="text-[12px] px-[10px] text-[#B3B3B3] py-[12px]">peaceful piano to help you slow down, breathe, and...</p>
-                            </div>
-                            <div class="flex flex-col items-center w-[175px] h-[253px] bg-[#161616] rounded-md hover:scale-[1.05]">
-                                <img class="w-[160px] h-[160px]" src="Imgs/Rectangle 32.png" alt="img"/>
-                                <h2 class="text-[14px] font-[800] text-left">Peaceful piano</h2>
-                                <p class="text-[12px] px-[10px] text-[#B3B3B3] py-[12px]">peaceful piano to help you slow down, breathe, and...</p>
-                            </div>
-                            <div class="flex flex-col items-center w-[175px] h-[253px] bg-[#161616] rounded-md hover:scale-[1.05]">
-                                <img class="w-[160px] h-[160px]" src="Imgs/Rectangle 32.png" alt="img"/>
-                                <h2 class="text-[14px] font-[800] text-left">Peaceful piano</h2>
-                                <p class="text-[12px] px-[10px] text-[#B3B3B3] py-[12px]">peaceful piano to help you slow down, breathe, and...</p>
                             </div>
                         </div>
                     </div>  
                 </div>
             </div>
         </section>
-        <section class="flex fixed w-full m-auto inset-0 h-full bg-black items-center pl-[15%] justify-center bg-opacity-75 hidden">
+        <section id="login_modal" class="flex fixed w-full m-auto inset-0 h-full bg-black items-center pl-[15%] justify-center bg-opacity-75 hidden">
             <div class="flex flex-col w-[300px] h-[350px] items-center bg-[white] rounded-xl">
                 <div class="relative w-full">
-                    <p class="absolute absolute top-0 right-0 rounded-full hover:cursor-pointer m-[5px] text-center w-[30px] h-[30px] text-[16px] border-[1px] ">X</p>
+                    <p class="absolute absolute top-0 right-0 rounded-full hover:cursor-pointer m-[5px] text-center w-[30px] h-[30px] text-[16px] border-[1px] close_login">X</p>
                 </div>
                  <div class="flex pt-[20px] gap-1 items-center font-[500]">
                     <i class="fa-solid fa-music text-[40px]"></i>
                     <h1 class="font-[700] text-[26px]">UMusic</h1>
                 </div>
                 <h2 class="text-[20px] pt-[15px]">Inicia sesión</h2>
-                <input class="w-[220px] mt-[40px] mb-[25px] border-[1px] border-black rounded-md" type="text" placeholder="Ingresa tu nombre de usuario"/>
-                <input class="w-[220px] border-[1px] border-black rounded-md" type="password" placeholder="Ingresa tu contraseña"/>
-                <button class="p-[10px] mt-[35px] rounded-full bg-[lightgreen]">Iniciar sesión</button>
+                <input id="usuario" class="w-[220px] mt-[40px] mb-[25px] border-[1px] border-black rounded-md" type="text" placeholder="Ingresa tu nombre de usuario"/>
+                <input  id="password" class="w-[220px] border-[1px] border-black rounded-md" type="password" placeholder="Ingresa tu contraseña"/>
+                <h2 id="msg-error" class="text-[crimson] mt-[15px] text-[14px] hidden">Usuario y/o contraseña incorrectos.</h2>
+                <button id="btn_login2" class="p-[10px] mt-[25px] rounded-full bg-[lightgreen]">Iniciar sesión</button>
+                
             </div>
         </section>
     </body>
