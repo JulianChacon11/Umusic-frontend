@@ -11,6 +11,7 @@ let btn_sign = document.getElementById("btn-sign");
 let btn_login2 = document.getElementById("btn_login2");
 let show_user = document.getElementById("show-user");
 let user_name = document.getElementById("user-name");
+let main_options = document.getElementById("main-options");
 const urlClientes = "http://localhost:8081/api/clientes";
 console.log('funciona o no?');
 

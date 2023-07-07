@@ -4,7 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html>
+<html lang="en">
     <head>
         <title>UMusic player</title>
         <meta charset="UTF-8">
@@ -29,8 +29,14 @@ and open the template in the editor.
                     <li class="hover:text-[lightgreen]"><a href="#"><i class="fa-solid fa-house pr-[5px]"></i>Home</a></li>
                     <li class="hover:text-[lightgreen]"><a href="#"><i class="fa-solid fa-magnifying-glass pr-[5px]"></i>Search</a></li>
                     <li class="hover:text-[lightgreen]"><a href="#"><i class="fa-solid fa-book pr-[5px]"></i>Your Library</a></li>
-                    <li class="hover:text-[lightgreen] mt-[40%]"><a href="#"><i class="fa-solid fa-headphones-simple pr-[5px]"></i>Create playlist</a></li>
+                    <li class="hover:text-[lightgreen] mt-[20%]"><a href="#"><i class="fa-solid fa-headphones-simple pr-[5px]"></i>Create playlist</a></li>
                     <li class="hover:text-[lightgreen]"><a href="#"><i class="fa-solid fa-heart pr-[5px]"></i>Liked songs</a></li>
+                </ul>
+                
+                <ul class="flex flex-col gap-2" id="main-options">
+                    <li class="hover:text-[lightgreen]"><a href="categories.html"><i class="fa-sharp fa-solid fa-gear pr-[5px]"></i>Manage Categories</a></li>
+                    <li class="hover:text-[lightgreen]"><a href="#"><i class="fa-sharp fa-solid fa-gear pr-[5px]"></i>Manage Songs</a></li>
+                    <li class="hover:text-[lightgreen]"><a href="#"><i class="fa-sharp fa-solid fa-gear pr-[5px]"></i>Manage Playlists</a></li>
                 </ul>
                 
                 <ul class="flex absolute flex-wrap gap-2 bottom-[100px] text-[11px] text-[#767676] font-[GothicA1] font-[700]">
@@ -112,7 +118,7 @@ and open the template in the editor.
                 <input id="usuario" class="w-[220px] mt-[40px] mb-[25px] border-[1px] border-black rounded-md" type="text" placeholder="Ingresa tu nombre de usuario"/>
                 <input  id="password" class="w-[220px] border-[1px] border-black rounded-md" type="password" placeholder="Ingresa tu contraseña"/>
                 <h2 id="msg-error" class="text-[crimson] mt-[15px] text-[14px] hidden">Usuario y/o contraseña incorrectos.</h2>
-                <button id="btn_login2" class="p-[10px] mt-[25px] rounded-full bg-[lightgreen]">Iniciar sesión</button>
+            <button id="btn_login2" class="p-[10px] mt-[25px] rounded-full bg-[lightgreen]">Iniciar sesión</button>
                 
             </div>
         </section>
