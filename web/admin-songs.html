@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Manage songs</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <script src="JavaScript/main-songs.js" defer></script>
+    </head>
+    <body>
+         <div class="flex items-center justify-center w-full min-h-screen h-screen bg-gradient-to-b from-lime-700 from-10% to-black/90 text-white overflow-y-scroll">
+            <div class="flex flex-col w-[90%] min-h-screen px-[3%] mt-[100px]">
+                <button id="go-back" class="h-[50px] w-[50px] bg-white text-black rounded-full text-[24px] hover:bg-[lightgreen]"><i class="fa-solid fa-arrow-left"></i></button>
+                <h1 class="text-[40px] font-[600]">Manage Songs</h1>
+                <div class="grid grid-cols-2 w-full h-[10%] mt-[60px] text-center">
+                    <div class="flex justify-end col-start-2">
+                        <button id="add-song" class="bg-white text-black py-[6px] px-[20px] rounded-full mr-[20px] font-[600] hover:bg-[lightgreen]"><i class="fa-solid fa-circle-plus mr-[2px]"></i>Add Song</button>
+                    </div>
+                </div>
+                <div class="relative overflow-x-auto shadow-md sm:rounded-lg mt-[10px] w-full h-full pb-[30px]" id="categories">
+                    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 table-auto">
+                        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    id
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Song name
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Artist
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Album
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-center">
+                                    Action
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="songs-list">
+                        </tbody>
+                    </table>
+                </div>
+                
+                
+            </div>
+        </div>
+        
+        
+           <div id="modal" class="flex fixed w-full m-auto inset-0 h-full bg-black items-center justify-center bg-opacity-75 hidden">
+            <div  class="flex relative flex-col w-[800px] bg-white h-[610px] rounded-xl items-center border-2 border-black border-opacity-50 mx-[2%] mt-[50px]">
+                <button id="modal-close" class="absolute top-0 right-0 border-black border-[2px] rounded-full px-[8px] mr-[6px] mt-[5px] hover:bg-[crimson] hover:scale-[1.2] hover:border-none">X</button>
+                <form id="form" class="flex flex-col w-full h-full px-[4%] pt-[20px]">
+                    <h1 id="modal-title" class="text-[26px] font-[500]">Add new Song</h1>
+                    <label class="mt-[10px] font-[500]" for="cat_name">Song name: </label>
+                    <input id="song-name" name="song-name" class="w-[220px] mb-[15px] border-[2px] mt-[8px] border-black rounded-md" type="text" placeholder="song name.."/>
+                    
+                    <label for="select-artist" class="font-[500]">Artist:</label>
+                    <select class="text-black border-[2px] border-black mb-[20px]" id="select-artist">
+                        <option value="" disabled selected>Select an artist</option>
+                    </select>
+                    
+                    <label class="font-[500]" for="song-album">Song duration: </label>
+                    <input type="text" id="song-album" name="song-album" class="w-[220px] mb-[10px] border-[2px] mt-[8px] border-black rounded-md" placeholder="song duration...."/>
+                    
+                    <label class="font-[500]" for="song-duration">Album: </label>
+                    <input type="text" id="song-duration" name="song-duration" class="w-[220px] mb-[10px] border-[2px] mt-[8px] border-black rounded-md" placeholder="song duration...."/>
+                    
+                    <label for="select-category" class="font-[500]">Category: </label>
+                    <select class="text-black border-[2px] border-black mb-[10px]" id="select-category">
+                        <option value="" disabled selected>Select a category</option>
+                    </select>
+                    
+                    <label class="font-[500]" for="song-url">Song cloud url: </label>
+                    <input type="text" id="song-url" name="song-url" class="w-[220px] mb-[10px] border-[2px] mt-[8px] border-black rounded-md" placeholder="song url...."/>
+                    
+                    <label class="font-[500]" for="song-img">Song image url: </label>
+                    <input type="text" id="song-img" name="song-img" class="w-[220px] mb-[5px] border-[2px] mt-[8px] border-black rounded-md" placeholder="song img url...."/>
+                    
+                    <button id="modal-add" class="p-[10px] w-[80%] m-auto rounded-full bg-[lightgreen] font-[500] hover:scale-[1.1]" type="submit">Add new category</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

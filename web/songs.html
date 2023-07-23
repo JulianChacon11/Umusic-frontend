@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <title>Reproductor de música</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="JavaScript/songs.js" defer></script>
+</head>
+<body>
+    <div class="flex flex-col items-center w-full h-full bg-gradient-to-b from-cyan-900 from-10% to-black/90">
+        
+        <div class="flex flex-col w-[90%] h-full mt-[20px] pb-[200px]">
+             <button id="go-back" class="h-[50px] w-[50px] bg-white text-black rounded-full text-[24px] hover:bg-[lightblue]"><i class="fa-solid fa-arrow-left"></i></button>
+            <div class="flex text-white items-center pb-[50px]">
+                <img class="max-w-[250px] max-h-[350px] m-[20px]" src="https://i0.wp.com/olumuse.org/wp-content/uploads/2020/09/unnamed.jpg?fit=512%2C512&ssl=1"/>
+                <div class="flex flex-col self-center">
+                    <h1 class="text-[55px] font-[700]">Our songs playlist</h1>
+                    <p id="songs-number"class="mb-[20px] text-[18px]">10 songs,<span id="songs-duration">36min 13 s</span></p>
+                    <button class="rounded-full h-[70px] w-[70px] bg-green-600 hover:bg-green-500" onclick="playAllSongs()"><i class="fa-solid fa-play text-[20px]"></i></button>
+                </div>
+            </div>
+            
+             <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 table-auto ">
+                        <thead class="text-sm text-stone-400 uppercase">
+                            <tr>
+                                <th scope="col" class="px-6 py-3">
+                                    id
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Song name
+                                </th>
+                                <th scope="col" class="px-6 py-3">
+                                    Album
+                                </th>
+                                <th scope="col" class="px-6 py-3 text-center">
+                                    <i class="fa-regular fa-clock"></i>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-stone-300 text-[14px]" id="songs-list">
+                           <!--Lista de canciones-->
+                        </tbody>
+                    </table>
+        </div>
+        
+    <div class="flex w-full h-[100px] bg-black fixed bottom-0 px-[30px] items-center justify-between text-white">
+        <div class="flex min-w-[200px] text-white items-center justify-center mr-[190px]">
+            <img id="img-player" class="max-w-[60px] max-h-[60px] rounded-md mr-[10px]" src=""/>
+            <div class="flex flex-col mr-[50px]">
+                <p id="song-player" class="text-[16px] font-[500]">Classy 101</p>
+                <p id="autor-player">Feid, Yound Miko</p>
+            </div>
+            <i class="fa-regular fa-heart text-[18px]"></i>
+        </div>
+        <div class="flex flex-col text-white justify-center items-center">
+            <div class="flex gap-x-[50px] text-[24px]">
+                <button><i class="fa-solid fa-backward-step"></i></button>
+                <button onclick="togglePause()" class="h-[40px] w-[40px] rounded-full bg-white text-black text-center"><i id="play-icon" class="fa-solid fa-play text-[20px]"></i></button>
+                <button><i class="fa-solid fa-forward-step"></i></button>
+            </div>
+            <div id="progress-bar-container" class="w-[600px] bg-white mt-[15px]">
+               <div id="reproductor-progress" class="h-[2px] bg-green-500 " style="width: 0%"></div>
+            </div>
+        </div>
+       <p id="reproductor-time"class="self-end mb-[10px] ml-[5px]">3:00</p>
+       <div class="flex items-center justify-center ml-[200px]">
+           <i class="fa-solid fa-volume-high mr-[5px]"></i>
+           <div class="h-[2px] w-[100px] bg-gray-300"></div>
+       </div>
+    </div>
+ </div>
+    
+    <audio id="audioPlayer" controls style="display: none;">
+        <source src="" type="audio/mp3">
+        Tu navegador no admite la reproducción de audio.
+    </audio>
+    
+    
+    
+    
+    <!--<ul>
+        <li><button onclick="playSong('Bad Bunny - WHERE SHE GOES (Lyrics).mp4')">Canción 1</button></li>
+        <li><button onclick="playSong('Feid, Young Miko - Classy 101 (Official Video).mp4 ')">Canción 2</button></li>
+        <!-- Añade más botones para reproducir otras canciones
+    </ul>
+
+    <audio controls id="audioPlayer">
+        Tu navegador no soporta la reproducción de audio.
+    </audio>
+
+    <script>
+        function playSong(songUrl) {
+            const audioPlayer = document.getElementById('audioPlayer');
+            audioPlayer.src = `https://storage.cloud.google.com/umusic-storage/${songUrl}`;
+            audioPlayer.play();
+        }
+    </script>-->
+</body>
+</html>

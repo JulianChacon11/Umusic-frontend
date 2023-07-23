@@ -11,8 +11,9 @@ let modal_add = document.getElementById('modal-add');
 let modal = document.getElementById('modal');
 let btn_add = document.getElementById('btn-add');
 let form = document.getElementById('form');
+const backButton = document.querySelector('#go-back');
 let selectedID = null;
-console.log('xd no queeee');
+console.log('xd no queeee aa');
 modal.addEventListener('click', (event) => {
     if (event.target.id == 'modal-close') {
         modal.style.display = 'none';
@@ -23,6 +24,10 @@ modal.addEventListener('click', (event) => {
 function openModal(){
     modal.style.display = 'flex';
 }
+
+backButton.addEventListener('click', () => {
+    window.location.href = "index.html";
+});
 
 btn_add.addEventListener('click', (event) => {
     openModal();

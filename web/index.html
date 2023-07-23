@@ -16,7 +16,7 @@ and open the template in the editor.
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <script src="JavaScript/request.js" defer></script>
         <script src="JavaScript/login.js" defer></script>
-        <script src="JavaScript/main-canciones.js" defer></script>
+        <script src="JavaScript/main-page-songs.js" defer></script>
     </head>
     <body>
         <section class="flex w-full h-full text-white ">
@@ -28,14 +28,14 @@ and open the template in the editor.
                 <ul class="flex flex-col gap-4">
                     <li class="hover:text-[lightgreen]"><a href="#"><i class="fa-solid fa-house pr-[5px]"></i>Home</a></li>
                     <li class="hover:text-[lightgreen]"><a href="#"><i class="fa-solid fa-magnifying-glass pr-[5px]"></i>Search</a></li>
-                    <li class="hover:text-[lightgreen]"><a href="#"><i class="fa-solid fa-book pr-[5px]"></i>Your Library</a></li>
+                    <li class="hover:text-[lightgreen]"><a href="songs.html"><i class="fa-solid fa-book pr-[5px]"></i>Your Library</a></li>
                     <li class="hover:text-[lightgreen] mt-[20%]"><a href="#"><i class="fa-solid fa-headphones-simple pr-[5px]"></i>Create playlist</a></li>
                     <li class="hover:text-[lightgreen]"><a href="#"><i class="fa-solid fa-heart pr-[5px]"></i>Liked songs</a></li>
                 </ul>
                 
                 <ul class="flex flex-col gap-2" id="main-options">
                     <li class="hover:text-[lightgreen]"><a href="categories.html"><i class="fa-sharp fa-solid fa-gear pr-[5px]"></i>Manage Categories</a></li>
-                    <li class="hover:text-[lightgreen]"><a href="#"><i class="fa-sharp fa-solid fa-gear pr-[5px]"></i>Manage Songs</a></li>
+                    <li class="hover:text-[lightgreen]"><a href="admin-songs.html"><i class="fa-sharp fa-solid fa-gear pr-[5px]"></i>Manage Songs</a></li>
                     <li class="hover:text-[lightgreen]"><a href="#"><i class="fa-sharp fa-solid fa-gear pr-[5px]"></i>Manage Playlists</a></li>
                 </ul>
                 
@@ -95,10 +95,10 @@ and open the template in the editor.
                                 <p class="text-[12px] px-[10px] text-[#B3B3B3] py-[12px]">peaceful piano to help you slow down, breathe, and...</p>
                             </div>
                         </div>
-                        <div id="songs-section" class="flex w-full h-full flex-wrap py-[20px] gap-x-[40px] pb-[80px]">
+                        <div id="songs-section" class="flex w-full h-full flex-wrap py-[20px] gap-[40px] pb-[80px]">
                             <div class="flex w-full flex-wrap justify-between items-center font-[500]">
                                 <h1 class="text-[22px] py-[5px]">Umusic Popular Songs</h1>
-                                <a href="#" class="text-right px-[3%] text-[#B3B3B3] text-[14px]">Show all</a>
+                                <a href="songs.html" class="text-right px-[3%] text-[#B3B3B3] text-[14px]">Show all</a>
                             </div>
                         </div>
                     </div>  
