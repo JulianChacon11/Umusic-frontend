@@ -28,17 +28,17 @@ and open the template in the editor.
                 <ul class="flex flex-col gap-4">
                     <li class="hover:text-[lightgreen]"><a href="#"><i class="fa-solid fa-house pr-[5px]"></i>Home</a></li>
                     <li class="hover:text-[lightgreen]"><a href="#"><i class="fa-solid fa-magnifying-glass pr-[5px]"></i>Search</a></li>
-                    <li class="hover:text-[lightgreen]"><a href="songs.html"><i class="fa-solid fa-book pr-[5px]"></i>Your Library</a></li>
+                    <li class="hover:text-[lightgreen]"><button onclick="redirect('songs.html')"><i class="fa-solid fa-book pr-[5px]"></i>Your Library</button></li>
                     <li class="hover:text-[lightgreen] mt-[20%]"><a href="#"><i class="fa-solid fa-headphones-simple pr-[5px]"></i>Create playlist</a></li>
                     <li class="hover:text-[lightgreen]"><a href="#"><i class="fa-solid fa-heart pr-[5px]"></i>Liked songs</a></li>
                 </ul>
-                
+
                 <ul class="flex flex-col gap-2" id="main-options">
-                    <li class="hover:text-[lightgreen]"><a href="categories.html"><i class="fa-sharp fa-solid fa-gear pr-[5px]"></i>Manage Categories</a></li>
-                    <li class="hover:text-[lightgreen]"><a href="admin-songs.html"><i class="fa-sharp fa-solid fa-gear pr-[5px]"></i>Manage Songs</a></li>
-                    <li class="hover:text-[lightgreen]"><a href="#"><i class="fa-sharp fa-solid fa-gear pr-[5px]"></i>Manage Playlists</a></li>
+                    <li class="hover:text-[lightgreen]"><button onclick="redirect('categories.html')"><i class="fa-sharp fa-solid fa-gear pr-[5px]"></i>Manage Categories</button></li>
+                    <li class="hover:text-[lightgreen]"><button onclick="redirect('admin-songs.html')"><i class="fa-sharp fa-solid fa-gear pr-[5px]"></i>Manage Songs</button></li>
+                    <li class="hover:text-[lightgreen]"><button onclick="redirect('artist.html')"><i class="fa-sharp fa-solid fa-gear pr-[5px]"></i>Manage Artists</button></li>
                 </ul>
-                
+
                 <ul class="flex absolute flex-wrap gap-2 bottom-[100px] text-[11px] text-[#767676] font-[GothicA1] font-[700]">
                     <li><a href="#">Legal</a></li>
                     <li><a href="#">Privacy Center</a></li>
@@ -47,7 +47,7 @@ and open the template in the editor.
                     <li><a href="#">About</a></li>
                     <li><a href="#">Ads</a></li>
                 </ul>
-                
+
                 <button class="flex absolute bottom-[20px] justify-evenly items-center border-[1px] rounded-2xl p-[5px] w-[90px]"><i class="fa-solid fa-globe"></i>English</button>
             </div>
 
@@ -112,7 +112,7 @@ and open the template in the editor.
                 <div class="relative w-full">
                     <p class="absolute absolute top-0 right-0 rounded-full hover:cursor-pointer m-[5px] text-center w-[30px] h-[30px] text-[16px] border-[1px] close_login">X</p>
                 </div>
-                 <div class="flex pt-[20px] gap-1 items-center font-[500]">
+                <div class="flex pt-[20px] gap-1 items-center font-[500]">
                     <i class="fa-solid fa-music text-[40px]"></i>
                     <h1 class="font-[700] text-[26px]">UMusic</h1>
                 </div>
@@ -120,8 +120,99 @@ and open the template in the editor.
                 <input id="usuario" class="w-[220px] mt-[40px] mb-[25px] border-[1px] border-black rounded-md" type="text" placeholder="Ingresa tu nombre de usuario"/>
                 <input  id="password" class="w-[220px] border-[1px] border-black rounded-md" type="password" placeholder="Ingresa tu contraseña"/>
                 <h2 id="msg-error" class="text-[crimson] mt-[15px] text-[14px] hidden">Usuario y/o contraseña incorrectos.</h2>
-            <button id="btn_login2" class="p-[10px] mt-[25px] rounded-full bg-[lightgreen]">Iniciar sesión</button>
-                
+                <button id="btn_login2" class="p-[10px] mt-[25px] rounded-full bg-[lightgreen]">Iniciar sesión</button>
+
+            </div>
+        </section>
+
+
+        <section id="sign-modal" class="flex fixed w-full m-auto inset-0 h-full bg-black items-center pl-[15%] z-50 justify-center bg-opacity-75 hidden">
+            <form id="form-sign" class="flex flex-col w-[600px] h-[650px] items-center bg-[white] rounded-xl">
+                <div class="relative w-full">
+                    <p class="absolute absolute top-0 right-0 rounded-full hover:cursor-pointer m-[5px] text-center w-[30px] h-[30px] text-[16px] border-[1px] close_login">X</p>
+                </div>
+                <div class="flex pt-[20px] gap-1 items-center font-[500]">
+                    <i class="fa-solid fa-music text-[40px]"></i>
+                    <h1 class="font-[700] text-[26px]">UMusic</h1>
+                </div>
+                <h2 class="text-[20px] pt-[10px]">Sign up now!</h2>
+
+                <label class="mt-[10px] pr-[100px]" for="name-user">Enter your name: </label>
+                <input id="name-user" class="w-[220px] border-[1px] border-black rounded-md" type="text" placeholder="Enter your name.." required/>
+
+                <label class="mt-[10px] pr-[80px]" for="lastname-user">Enter your lastname: </label>
+                <input  id="lastname-user" class="w-[220px] border-[1px] border-black rounded-md" type="text" placeholder="Enter your lastname..." required/>
+
+                <label class="mt-[10px] pr-[150px]" for="birth-user">Birth date:</label>
+                <input type="date" name="birth-user" id="birth-user" pattern="\d{4}-\d{2}-\d{2}" placeholder="YYYY-MM-DD" class="w-[220px] border-[1px] border-black rounded-md" required/>
+
+                <label for="user-email" class="mt-[10px] pr-[180px]">Email:</label>
+                <input id="user-email" name="user-email" type="email" class="w-[220px] border-[1px] border-black rounded-md" placeholder="Enter your email..." required/>
+
+                <label for="user-phone" class="mt-[10px] pr-[110px]">Phone number:</label>
+                <input id="user-phone" name="user-phone" type="tel" class="w-[220px] border-[1px] border-black rounded-md" placeholder="Enter your phone number..." required/>
+
+                <label class="mt-[10px]">Genre:</label>
+                <div class="flex gap-x-4">
+                    <label>
+                        <input type="radio" name="genero" value="Masculino"/>
+                        Masculino
+                    </label>    
+                    <label>
+                        <input type="radio" name="genero" value="Femenino"/>
+                        Femenino
+                    </label>
+                    <label>
+                        <input type="radio" name="genero" value="Otro"/>
+                        Otro
+                    </label>
+                </div>
+
+                <label for="username" class="mt-[10px] pr-[140px]">User name:</label>
+                <input id="username" name="username" type="text" class="w-[220px] border-[1px] border-black rounded-md" placeholder="Enter your username..." required/>
+
+                <label for="username" class="mt-[10px] pr-[140px]">Password:</label>
+                <input id="password-sign" name="password" type="password" class="w-[220px] border-[1px] border-black rounded-md" placeholder="Enter your password..." required/>
+
+                <button id="btn-sign-up" class="p-[10px] mt-[15px] rounded-full bg-[lightgreen]" type="submit">Sign up</button>
+
+            </form>
+        </section>
+
+        <div id="reproducer" class="flex w-full h-[100px] bg-black fixed bottom-0 px-[30px] items-center z-50 justify-between text-white hidden">
+            <div class="flex min-w-[200px] text-white items-center justify-center mr-[190px]">
+                <img id="img-player" class="max-w-[60px] max-h-[60px] rounded-md mr-[10px]" src=""/>
+                <div class="flex flex-col mr-[50px]">
+                    <p id="song-player" class="text-[16px] font-[500]">Classy 101</p>
+                    <p id="autor-player">Feid, Yound Miko</p>
+                </div>
+                <i class="fa-regular fa-heart text-[18px]"></i>
+            </div>
+            <div class="flex flex-col text-white justify-center items-center">
+                <div class="flex gap-x-[50px] text-[24px]">
+                    <button><i class="fa-solid fa-backward-step"></i></button>
+                    <button onclick="togglePause()" class="h-[40px] w-[40px] rounded-full bg-white text-black text-center"><i id="play-icon" class="fa-solid fa-play text-[20px]"></i></button>
+                    <button><i class="fa-solid fa-forward-step"></i></button>
+                </div>
+                <div id="progress-bar-container" class="w-[600px] bg-white mt-[15px] hover:cursor-pointer">
+                    <div id="reproductor-progress" class="h-[4px] bg-green-500 " style="width: 0%"></div>
+                </div>
+            </div>
+            <p id="reproductor-time"class="self-end mb-[10px] ml-[5px]">3:00</p>
+            <div class="flex items-center justify-center ml-[200px]">
+                <i class="fa-solid fa-volume-high mr-[5px]"></i>
+                <div class="h-[2px] w-[100px] bg-gray-300"></div>
+            </div>
+        </div>
+
+        <audio id="audioPlayer" controls style="display: none;">
+            <source src="" type="audio/mp3">
+            Tu navegador no admite la reproducción de audio.
+        </audio>
+               
+        <section id="must-log" class="flex fixed w-full m-auto inset-0 h-full bg-black items-center pl-[15%] justify-center bg-opacity-75 hidden">
+            <div class="flex flex-col w-[300px] h-[100px] items-center justify-center bg-[white] rounded-xl">
+                <h1 class="text-[green] font-[600] text-[20px] text-center">You must be loged in.</h1>
             </div>
         </section>
     </body>

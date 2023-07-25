@@ -4,12 +4,14 @@
  * and open the template in the editor.
  */
 let songs_section = document.getElementById('songs-section');
-const urlCanciones = "http://localhost:8081/api/canciones";
+let urlSongs = 'http://localhost:8081/api/canciones';
+let reproducer = document.querySelector('#reproducer');
+let mustLog = document.querySelector('#must-log');
 
 async function getApi() {
     let elementos = null;
     try {
-        const response = await fetch(urlCanciones);
+        const response = await fetch(urlSongs);
         console.log(response);
         const canciones = await response.json();
         elementos = Array.from(canciones);
@@ -19,53 +21,114 @@ async function getApi() {
              <div class="h-[60%] w-[100%] p-[7%]">
                 <img class="object-cover h-[100%] w-[100%] rounded-xl" src="${element.imagen}" alt="">
             </div>
-            <h2 class="text-[14px] font-[800] text-center min-h-[40px]">${element.titulo}</h2>
+            <button onclick="playSong('${element.url}'); toggleOnPlayer('${element.imagen}','${element.titulo}', '${element.artista.nombre}')">
+                <h2 class="text-[14px] font-[800] text-center min-h-[40px]">${element.titulo}</h2>
+            </button>
             <p class="text-[12px] px-[10px] text-[#B3B3B3] py-[12px]">${element.artista.nombre}</p>
            </div>`
         });
 
     } catch (error) {
         console.log(`Hubo un error ${error}`)
-    };
-    /*let selected = null;
-    itemsSection.addEventListener('click', (event) => {
+    }
+    ;
+}
 
-        if (event.target.classList.contains('btn-compra')) {
-          selected = elementos.filter((element) => {
-                return element.title == event.target.parentElement.querySelector('.card-title').textContent
-            })
-            // console.log(selected);
-            modal.style.display = 'flex';
-            modalbody.innerHTML = `
-            <div
-            id = "card"
-            class="flex flex-col w-[300px] bg-white h-[550px] rounded-xl items-center border-2 border-black border-opacity-50 mx-[2%] mt-[50px] sombra">
-            <h1 id="card-title" class="card-title text-[20px] max-h-[80px] h-[80px] text-clip text-center overflow-y-scroll font-[400] my-[20px] text-[#525252] no-scrollbar ">${selected[0].title}</h1>
-            <div class="h-[35%] w-[100%] px-[5%]">
-            <img class=" object-contain h-[100%] w-[100%]" src="${selected[0].image}" alt="">
-            </div>
-            <p class="h-[200px] max-h-[100px] text-[14px] text-justify overflow-y-scroll no-scrollbar px-[10px] mt-[20px]">${selected[0].description}</p>
-            <h2 class="text-[24px] text-[#525252] my-[10px] ">$<span class="precio">${selected[0].price}</span></h2>
-            <div class="flex w-full gap-x-6 justify-center">
-            <button id="btn-compra" class="bg-[#04724D] w-[100px] py-[10px] font-[500] btn-compra rounded-2xl hover:bg-opacity-75">Comprar</button>
-            <button id="btn-cancelar" class="bg-[crimson] w-[90px] py-[10px] font-[500] btn-cancelar rounded-2xl hover:bg-opacity-75">Cancelar</button> 
-            </div>
-            
-          </div>`
+//Reproductor
 
-        }
-        
-           if (event.target.classList.contains('btn-cancelar')) {
-                closeModal();
-            } else if (event.target.classList.contains('btn-compra')) {  
-               if(confirm(`Esta seguro que desea comprar ${selected[0].title}? `) == true) {
-                localStorage.setItem('producto',JSON.stringify(selected))
-                window.location.href = "/Html/compra.html";
-               } 
-            }modal.addEventListener('click', (event) => {
-         
-        })
-    })*/
+const imgAudioPlayer = document.querySelector('#img-player');
+const songNamePlayer = document.querySelector('#song-player');
+const progressBar = document.querySelector('#reproductor-progress');
+const audioPlayer = document.getElementById('audioPlayer');
+const timeDisplay = document.querySelector('#reproductor-time');
+const playIcon = document.querySelector('#play-icon');
+const songsDuration = document.querySelector('#songs-duration');
+const songAutor = document.querySelector('#autor-player');
+const progressBarContainer = document.querySelector('#progress-bar-container');
+
+function playSong(songUrl) {
+    if (localStorage.getItem('username') !== null) {
+        reproducer.style.display = 'flex';
+        return new Promise((resolve) => {
+            audioPlayer.src = `https://storage.cloud.google.com/umusic-storage/${songUrl}`;
+            audioPlayer.play();
+            playIcon.classList.remove('fa-play');
+            playIcon.classList.add('fa-pause');
+
+            // Escuchar el evento 'ended' para saber cuándo termina la canción
+            audioPlayer.addEventListener('ended', () => {
+                resolve(); // Resolvemos la promesa para indicar que la canción ha terminado
+            });
+
+            let isDraggingProgressBar = false;
+            audioPlayer.addEventListener('timeupdate', () => {
+                const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+                progressBar.style.width = progress + '%';
+
+                const currentTime = formatTime(audioPlayer.currentTime);
+                timeDisplay.textContent = currentTime;
+
+                if (!isDraggingProgressBar) {
+                    updateProgressBar();
+                }
+            });
+
+            progressBarContainer.addEventListener('click', (event) => {
+                const containerWidth = progressBarContainer.clientWidth;
+                const clickPosition = event.offsetX;
+                const progress = (clickPosition / containerWidth) * audioPlayer.duration;
+                audioPlayer.currentTime = progress;
+            });
+
+            progressBarContainer.addEventListener('mousedown', () => {
+                isDraggingProgressBar = true;
+            });
+
+            document.addEventListener('mouseup', () => {
+                if (isDraggingProgressBar) {
+                    isDraggingProgressBar = false;
+                    // Actualizar la barra de progreso una vez que el usuario ha terminado de arrastrar
+                    updateProgressBar();
+                }
+            });
+        });
+    }else{
+        mustLog.style.display = 'flex';
+        setTimeout(() => {
+            mustLog.style.display = 'none';
+        }, "3000")
+    }
+
+}
+
+
+function toggleOnPlayer(image, title, autor) {
+    imgAudioPlayer.src = image;
+    songNamePlayer.textContent = title;
+    songAutor.textContent = autor;
+}
+
+function togglePause() {
+    if (audioPlayer.paused) {
+        playIcon.classList.remove('fa-play');
+        playIcon.classList.add('fa-pause');
+        audioPlayer.play(); // Si está pausado, despausar y continuar la reproducción
+    } else {
+        playIcon.classList.remove('fa-pause');
+        playIcon.classList.add('fa-play');
+        audioPlayer.pause(); // Si está reproduciendo, pausar la canción
+    }
+}
+
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60);
+    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+}
+
+function updateProgressBar() {
+    const progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+    progressBar.style.width = progress + "%";
 }
 
 getApi();
