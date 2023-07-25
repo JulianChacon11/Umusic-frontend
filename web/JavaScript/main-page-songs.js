@@ -15,12 +15,12 @@ async function getApi() {
         elementos = Array.from(canciones);
         canciones.forEach(element => {
             songs_section.innerHTML += `
-           <div class="flex flex-col items-center w-[175px] h-[253px] bg-[#161616] px[5%] rounded-md hover:scale-[1.05]">
+           <div class="flex flex-col items-center w-[175px] h-[253px] bg-[#161616] px[5%] rounded-xl hover:scale-[1.05]">
              <div class="h-[60%] w-[100%] p-[7%]">
                 <img class="object-cover h-[100%] w-[100%] rounded-xl" src="${element.imagen}" alt="">
             </div>
             <h2 class="text-[14px] font-[800] text-center min-h-[40px]">${element.titulo}</h2>
-            <p class="text-[12px] px-[10px] text-[#B3B3B3] py-[12px]">${element.album}</p>
+            <p class="text-[12px] px-[10px] text-[#B3B3B3] py-[12px]">${element.artista.nombre}</p>
            </div>`
         });
 

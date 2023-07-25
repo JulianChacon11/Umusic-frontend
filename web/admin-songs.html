@@ -57,7 +57,7 @@ and open the template in the editor.
         
            <div id="modal" class="flex fixed w-full m-auto inset-0 h-full bg-black items-center justify-center bg-opacity-75 hidden">
             <div  class="flex relative flex-col w-[800px] bg-white h-[610px] rounded-xl items-center border-2 border-black border-opacity-50 mx-[2%] mt-[50px]">
-                <button id="modal-close" class="absolute top-0 right-0 border-black border-[2px] rounded-full px-[8px] mr-[6px] mt-[5px] hover:bg-[crimson] hover:scale-[1.2] hover:border-none">X</button>
+                <button id="modal-close" class="absolute top-0 right-0 border-black border-[2px] rounded-full px-[8px] mr-[6px] mt-[5px] hover:bg-[crimson] hover:scale-[1.2] hover:border-none" onclick="closeModal()">X</button>
                 <form id="form" class="flex flex-col w-full h-full px-[4%] pt-[20px]">
                     <h1 id="modal-title" class="text-[26px] font-[500]">Add new Song</h1>
                     <label class="mt-[10px] font-[500]" for="cat_name">Song name: </label>
@@ -68,10 +68,10 @@ and open the template in the editor.
                         <option value="" disabled selected>Select an artist</option>
                     </select>
                     
-                    <label class="font-[500]" for="song-album">Song duration: </label>
-                    <input type="text" id="song-album" name="song-album" class="w-[220px] mb-[10px] border-[2px] mt-[8px] border-black rounded-md" placeholder="song duration...."/>
+                    <label class="font-[500]" for="song-album">Album: </label>
+                    <input type="text" id="song-album" name="song-album" class="w-[220px] mb-[10px] border-[2px] mt-[8px] border-black rounded-md" placeholder="song album...."/>
                     
-                    <label class="font-[500]" for="song-duration">Album: </label>
+                    <label class="font-[500]" for="song-duration">Song duration: </label>
                     <input type="text" id="song-duration" name="song-duration" class="w-[220px] mb-[10px] border-[2px] mt-[8px] border-black rounded-md" placeholder="song duration...."/>
                     
                     <label for="select-category" class="font-[500]">Category: </label>
@@ -85,7 +85,7 @@ and open the template in the editor.
                     <label class="font-[500]" for="song-img">Song image url: </label>
                     <input type="text" id="song-img" name="song-img" class="w-[220px] mb-[5px] border-[2px] mt-[8px] border-black rounded-md" placeholder="song img url...."/>
                     
-                    <button id="modal-add" class="p-[10px] w-[80%] m-auto rounded-full bg-[lightgreen] font-[500] hover:scale-[1.1]" type="submit">Add new category</button>
+                    <button id="modal-add" class="p-[10px] w-[80%] m-auto rounded-full bg-[lightgreen] font-[500] hover:scale-[1.1]" type="submit">Add new Song</button>
                 </form>
             </div>
         </div>

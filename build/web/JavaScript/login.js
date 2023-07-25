@@ -12,8 +12,9 @@ let btn_login2 = document.getElementById("btn_login2");
 let show_user = document.getElementById("show-user");
 let user_name = document.getElementById("user-name");
 let main_options = document.getElementById("main-options");
+let logOutBtn = document.getElementById('log-out');
 const urlClientes = "http://localhost:8081/api/clientes";
-console.log('funciona o no?');
+console.log('funciona o no? xd');
 
 let modal = document.getElementById("login_modal");
 
@@ -32,6 +33,24 @@ btn_login2.addEventListener('click', (event) => {
     validarLogin();
 });
 
+function getLocalData() {
+    if(localStorage.getItem('username') !== null) {
+        show_user.style.display = 'flex';
+        user_name.textContent = localStorage.getItem('username');
+        btn_sign.style.display = 'none';
+        btn_login.style.display = 'none';
+   
+    }else{
+        show_user.style.display = 'none';
+        btn_sign.style.display = 'flex';
+        btn_login.style.display = 'flex';
+    }
+}
+
+function logOut() {
+    localStorage.removeItem('username');
+    getLocalData();
+}
 
 
 function validarLogin() {
@@ -65,6 +84,7 @@ function validarLogin() {
             btn_login.style.display = 'none';
             btn_sign.style.display = 'none';
             show_user.style.display = 'flex';
+            localStorage.setItem('username', nombreUsuario);
             user_name.textContent = nombreUsuario;
             exists = true;
             closeModal();
@@ -100,3 +120,5 @@ async function getClientes() {
 function closeModal() {
     modal.style.display = 'none';
 }
+
+getLocalData();
